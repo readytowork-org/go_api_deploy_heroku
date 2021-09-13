@@ -1,6 +1,6 @@
 build:
   languages:
-    - go
+    - go:1.14
 
 run:
   web: go_api_deploy_heroku
