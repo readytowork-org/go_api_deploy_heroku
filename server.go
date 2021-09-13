@@ -1,24 +1,16 @@
 package main
 
 import (
-	"prototype2/infrastructure"
-	"prototype2/utils"
+	"github.com/dipeshdulal/clean-gin/bootstrap"
+	"github.com/dipeshdulal/clean-gin/lib"
+	_ "github.com/go-sql-driver/mysql"
+	"github.com/joho/godotenv"
+	"go.uber.org/fx"
 )
 
 func main() {
-	utils.LoadEnv()
+	godotenv.Load()
 
-	err := utils.SetupLumberjackLoging()
-	if err != nil {
-		panic(err.Error())
-	}
-
-
-	utils.SetupSentry()
-
-	db := infrastructure.SetupModels()
-
-	fb := infrastructure.InitializeFirebase()
-
-	infrastructure.SetupRoutes(db, fb)
+	logger := lib.GetLogger().GetFxLogger()
+	fx.New(bootstrap.Module, fx.Logger(logger)).Run()
 }
