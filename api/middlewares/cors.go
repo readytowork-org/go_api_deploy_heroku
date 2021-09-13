@@ -1,7 +1,11 @@
 package middlewares
 
 import (
-	"github.com/dipeshdulal/clean-gin/lib"
+	"net/http"
+
+	"go_api_deploy_heroku/lib"
+
+	"github.com/gin-gonic/gin"
 	cors "github.com/rs/cors/wrapper/gin"
 )
 
@@ -33,4 +37,8 @@ func (m CorsMiddleware) Setup() {
 		AllowedMethods:   []string{"GET", "POST", "PUT", "HEAD", "OPTIONS"},
 		Debug:            debug,
 	}))
+
+	m.handler.Gin.GET("/health-check",func (c *gin.Context)  {
+		c.JSON(http.StatusOK, gin.H{"message":"api is working"})
+	})
 }

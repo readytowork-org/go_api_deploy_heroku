@@ -3,12 +3,13 @@ package bootstrap
 import (
 	"context"
 
-	"github.com/dipeshdulal/clean-gin/api/controllers"
-	"github.com/dipeshdulal/clean-gin/api/middlewares"
-	"github.com/dipeshdulal/clean-gin/api/routes"
-	"github.com/dipeshdulal/clean-gin/lib"
-	"github.com/dipeshdulal/clean-gin/repository"
-	"github.com/dipeshdulal/clean-gin/services"
+	"go_api_deploy_heroku/api/controllers"
+	"go_api_deploy_heroku/api/middlewares"
+	"go_api_deploy_heroku/api/routes"
+	"go_api_deploy_heroku/lib"
+	"go_api_deploy_heroku/repository"
+	"go_api_deploy_heroku/services"
+
 	"go.uber.org/fx"
 )
 

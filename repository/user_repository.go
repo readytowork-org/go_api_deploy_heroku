@@ -1,7 +1,8 @@
 package repository
 
 import (
-	"github.com/dipeshdulal/clean-gin/lib"
+	"go_api_deploy_heroku/lib"
+
 	"gorm.io/gorm"
 )
 

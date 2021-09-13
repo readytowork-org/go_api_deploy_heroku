@@ -1,4 +1,4 @@
-module github.com/dipeshdulal/clean-gin
+module go_api_deploy_heroku
 
 go 1.14
 

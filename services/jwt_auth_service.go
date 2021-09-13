@@ -3,9 +3,10 @@ package services
 import (
 	"errors"
 
+	"go_api_deploy_heroku/lib"
+	"go_api_deploy_heroku/models"
+
 	"github.com/dgrijalva/jwt-go"
-	"github.com/dipeshdulal/clean-gin/lib"
-	"github.com/dipeshdulal/clean-gin/models"
 )
 
 // JWTAuthService service relating to authorization

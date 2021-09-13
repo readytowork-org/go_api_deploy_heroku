@@ -1,8 +1,9 @@
 package main
 
 import (
-	"github.com/dipeshdulal/clean-gin/bootstrap"
-	"github.com/dipeshdulal/clean-gin/lib"
+	"go_api_deploy_heroku/bootstrap"
+	"go_api_deploy_heroku/lib"
+
 	_ "github.com/go-sql-driver/mysql"
 	"github.com/joho/godotenv"
 	"go.uber.org/fx"

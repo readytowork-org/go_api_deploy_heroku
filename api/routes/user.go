@@ -1,9 +1,9 @@
 package routes
 
 import (
-	"github.com/dipeshdulal/clean-gin/api/controllers"
-	"github.com/dipeshdulal/clean-gin/api/middlewares"
-	"github.com/dipeshdulal/clean-gin/lib"
+	"go_api_deploy_heroku/api/controllers"
+	"go_api_deploy_heroku/api/middlewares"
+	"go_api_deploy_heroku/lib"
 )
 
 // UserRoutes struct
@@ -17,7 +17,7 @@ type UserRoutes struct {
 // Setup user routes
 func (s UserRoutes) Setup() {
 	s.logger.Info("Setting up routes")
-	api := s.handler.Gin.Group("/api").Use(s.authMiddleware.Handler())
+	api := s.handler.Gin.Group("/api")
 	{
 		api.GET("/user", s.userController.GetUser)
 		api.GET("/user/:id", s.userController.GetOneUser)

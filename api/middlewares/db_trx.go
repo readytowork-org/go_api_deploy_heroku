@@ -3,8 +3,9 @@ package middlewares
 import (
 	"net/http"
 
-	"github.com/dipeshdulal/clean-gin/constants"
-	"github.com/dipeshdulal/clean-gin/lib"
+	"go_api_deploy_heroku/constants"
+	"go_api_deploy_heroku/lib"
+
 	"github.com/gin-gonic/gin"
 )
 

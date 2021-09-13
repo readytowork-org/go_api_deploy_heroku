@@ -1,8 +1,9 @@
 package controllers
 
 import (
-	"github.com/dipeshdulal/clean-gin/lib"
-	"github.com/dipeshdulal/clean-gin/services"
+	"go_api_deploy_heroku/lib"
+	"go_api_deploy_heroku/services"
+
 	"github.com/gin-gonic/gin"
 )
 
