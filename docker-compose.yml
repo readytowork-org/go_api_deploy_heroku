@@ -21,17 +21,11 @@ services:
       context: .
       dockerfile: ./docker/db.Dockerfile
     environment:
-      MYSQL_ROOT_PASSWORD: "${DB_PASS}"
-      MYSQL_DATABASE: "${DB_NAME}"
-      MYSQL_ROOT_HOST: "%"
-    command:
-      [
-        "--character-set-server=utf8mb4",
-        "--collation-server=utf8mb4_unicode_ci",
-        "--default-authentication-plugin=mysql_native_password",
-      ]
+      POSTGRES_USERNAME: "${DB_USER}"
+      POSTGRES_PASSWORD: "${DB_PASS}"
+      POSTGRES_DB: "${DB_NAME}"
     ports:
-      - 33068:3306
+      - 54322:5432
     volumes:
       - user_db:/var/lib/mysql
 

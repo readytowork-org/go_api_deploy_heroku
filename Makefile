@@ -1,32 +1,27 @@
 include .env
 
-RUNNER=docker-compose exec web migrate
-ifeq ($(p),host)
-	RUNNER=migrate
-endif
+DB_URL="postgres://${DB_USER}:${DB_PASS}@${DB_HOST}:${DB_PORT}/${DB_NAME}?sslmode=disable"
 
-MIGRATE=docker-compose exec web migrate -path=migration -database "mysql://$(DB_USER):$(DB_PASS)@tcp($(DB_HOST):$(DB_PORT))/$(DB_NAME)" -verbose
+# MIGRATE=migrate -source file://migration -database ${DB_URL} -verbose
+MIGRATE=docker-compose exec web migrate -path=migration -database ${DB_URL} -verbose
 
-# MIGRATE=$(RUNNER) -path=migration -database "mysql://$(DB_USER):$(DB_PASS)@tcp($(DB_HOST):$(DB_PORT))/$(DB_NAME)" -verbose
+dev:
+	go run main.go
 
 migrate-up:
-		$(MIGRATE) up
+	$(MIGRATE) up 
+
 migrate-down:
-		$(MIGRATE) down 
+	$(MIGRATE) down 
+
 force:
-		@read -p  "Which version do you want to force?" VERSION; \
-		$(MIGRATE) force $$VERSION
+	@read -p  "Which version do you want to force?" VERSION; \
+	$(MIGRATE) force $$VERSION
 
 goto:
-		@read -p  "Which version do you want to migrate?" VERSION; \
-		$(MIGRATE) goto $$VERSION
+	@read -p  "Which version do you want to migrate?" VERSION; \
+	$(MIGRATE) goto $$VERSION
 
-drop:
-		$(MIGRATE) drop
-
-create:
-		@read -p  "What is the name of migration?" NAME; \
-		$(MIGRATE) create -ext sql -seq -dir migration  $$NAME
-
-.PHONY: migrate-up migrate-down force goto drop create
-
+migrate:
+	@read -p  "What is the name of migration?" NAME; \
+	migrate create -ext sql -dir migration  $$NAME

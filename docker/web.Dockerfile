@@ -18,7 +18,7 @@ RUN set -x \
 WORKDIR /tmp/go-migrate
 
 RUN set -x \
-    && CGO_ENABLED=0 go build -tags 'mysql' -ldflags="-s -w" -o ./migrate ./cmd/migrate \
+    && CGO_ENABLED=0 go build -tags 'postgres' -ldflags="-s -w" -o ./migrate ./cmd/migrate \
     && ./migrate -version
 
 RUN cp /tmp/go-migrate/migrate /usr/bin/migrate

@@ -3,7 +3,7 @@ package lib
 import (
 	"fmt"
 
-	"gorm.io/driver/mysql"
+	"gorm.io/driver/postgres"
 	"gorm.io/gorm"
 )
 
@@ -21,9 +21,9 @@ func NewDatabase(env Env, logger Logger) Database {
 	port := env.DBPort
 	dbname := env.DBName
 
-	url := fmt.Sprintf("%s:%s@tcp(%s:%s)/%s?charset=utf8&parseTime=True&loc=Local", username, password, host, port, dbname)
+	url := fmt.Sprintf("host=%s user=%s password=%s dbname=%s port=%s sslmode=disable", host, username, password, dbname, port)
 
-	db, err := gorm.Open(mysql.Open(url), &gorm.Config{
+	db, err := gorm.Open(postgres.Open(url), &gorm.Config{
 		Logger: logger.GetGormLogger(),
 	})
 

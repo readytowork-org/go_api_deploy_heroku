@@ -27,7 +27,7 @@ If you are running without docker be sure database configuration is provided in 
 | `DB_USER`      | `username`               | Database Username                |
 | `DB_PASS`      | `password`               | Database Password                |
 | `DB_HOST`      | `0.0.0.0`                | Database Host                    |
-| `DB_PORT`      | `3306`                   | Database Port                    |
+| `DB_PORT`      | `5432`                   | Database Port                    |
 | `DB_NAME`      | `test`                   | Database Name                    |
 | `JWT_SECRET`   | `secret`                 | JWT Token Secret key             |
 | `ADMINER_PORT` | `5001`                   | Adminer DB Port                  |
