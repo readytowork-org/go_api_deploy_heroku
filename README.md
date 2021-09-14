@@ -54,32 +54,4 @@ If you are running without docker be sure database configuration is provided in 
 
 </details>
 
-## Implemented Features
 
--   Dependency Injection (go-fx)
--   Routing (gin web framework)
--   Environment Files
--   Logging (file saving on `production`) [zap](https://github.com/uber-go/zap)
--   Middlewares (cors)
--   Database Setup (mysql)
--   Models Setup and Automigrate (gorm)
--   Repositories
--   Implementing Basic CRUD Operation
--   Authentication (JWT)
--   Migration Runner Implementation
--   Live code refresh
--   Dockerize Application with Debugging Support Enabled. Debugger runs at `5002`. Vs code configuration is at `.vscode/launch.json` which will attach debugger to remote application. [Learn More](https://medium.com/wesionary-team/docker-debug-environment-for-go-and-gin-framework-36df80e061ac?source=friends_link&sk=35c9d856852944083dd30059200d87f0)
-
-## Todos
-
--   [ ] COBRA Commander CLI Support [#26](https://go_api_deploy_heroku/issues/26)
--   [ ] Swagger documentation examples [#25](https://go_api_deploy_heroku/issues/25)
--   [ ] Unit testing examples. [#23](https://go_api_deploy_heroku/issues/23)
--   [ ] File upload middelware. [#20](https://go_api_deploy_heroku/issues/20)
--   [ ] Use of Interfaces [#10](https://go_api_deploy_heroku/issues/10)
-
-## Contributing
-
-Please open issues if you want the template to add some features that is not in todos. 🙇‍♂️
-
-Create a PR with relevant information if you want to contribute in this template.
