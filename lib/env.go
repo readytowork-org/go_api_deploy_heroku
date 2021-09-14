@@ -15,6 +15,7 @@ type Env struct {
 	DBPort      string `mapstructure:"DB_PORT"`
 	DBName      string `mapstructure:"DB_NAME"`
 	JWTSecret   string `mapstructure:"JWT_SECRET"`
+	DatabaseURL string `mapstructure:"DATABASE_URL"`
 }
 
 // NewEnv creates a new environment

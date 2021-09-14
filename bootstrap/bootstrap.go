@@ -32,6 +32,7 @@ func bootstrap(
 	logger lib.Logger,
 	middlewares middlewares.Middlewares,
 	database lib.Database,
+	migration lib.Migration,
 ) {
 	conn, _ := database.DB.DB()
 
@@ -42,11 +43,20 @@ func bootstrap(
 			logger.Info("------- CLEAN -------")
 			logger.Info("---------------------")
 
+			migration.Migrate()
 			conn.SetMaxOpenConns(10)
 			go func() {
 				middlewares.Setup()
 				routes.Setup()
-				handler.Gin.Run(":" + env.ServerPort)
+
+				migration.Migrate()
+				conn.SetMaxOpenConns(10)
+
+				if env.ServerPort == "" {
+					handler.Gin.Run()
+				} else {
+					handler.Gin.Run(":"+env.ServerPort)
+				}
 			}()
 			return nil
 		},
